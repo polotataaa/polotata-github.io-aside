@@ -117,11 +117,13 @@
 }
 
 .nav-link {
+	transition: 2s;
 	text-decoration: none;
 	color: #1B1C21;
 }
 
 .nav-link:hover {
+	transition: 2s;
 	color: #7E7E82;
 }
 
