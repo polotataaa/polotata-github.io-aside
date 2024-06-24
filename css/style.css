@@ -18,8 +18,13 @@
  } 
 
 /* подключение декоративных картинок                    */
-.aside__button,
-.footer__button {
+
+/* Красный круглые кнопки - это такие же блоки из предыдущего макета. 
+Смотри финальный макет и заранее планируй, где одинаковые элементы, 
+которые можно выделить в блок, чтобы потом легче было работать над финальным макетом
+В первом макете кнопки выделены в класс round-icon, все круглые кнопки будут в этом классе*/
+
+.round-icon {
 	background: #ff3e79;
    border-radius: 50%;
 	width: 40px;
@@ -78,31 +83,45 @@
 	margin-right: 78.27px;
 }
 
-.main {
+.aside__main {
 	width: 69.375%;
 	padding-left: 24px;
-	margin-bottom: 268px;
+	padding-bottom: 268px;
 }
 
-.main__nav {
+.aside__nav {
 	font-family: "TT Lakes", sans-serif;
 	font-size: 16px;
 	line-height: 24px;
 }
 
-.main__list {
+.nav__list {
 	display: flex;
 	flex-direction: column;
+	gap: 32px;
 }
 
 .nav__item {
 	display: flex;
+	cursor: pointer;
+	transition: 3s;
 	height: 24px;
-	margin-bottom: 32px;
 }
 
-.nav__item:last-child {
-	margin-bottom: 0;
+.nav__item::before {
+	content: '';
+	width: 8px;
+	height: 32px;
+	transition: 3s;
+	margin-top: -4px;
+	margin-left: -28px;
+	margin-right: 20px;
+	background-color: #41f6d7;
+	border-radius: 5px;
+	pointer-events: none; /*чтоб не мешался*/
+   opacity: 0;
+   transition: ease opacity 0.5s;
+   transition-delay: .0s; /*при убирании курсора анимация сразу сработает*/
 }
 
 .nav__item:hover::before {
@@ -114,14 +133,22 @@
 	margin-right: 20px;
 	background-color: #41f6d7;
 	border-radius: 5px;
+	opacity: 1;
+   transition-delay: .3s;
 }
 
 .nav-link {
+	width: 100%;
+	/* 2-е имеется в виду немного увеличить высоту ссылок 
+	надеюсь 30 подойдет ? */
+	height: 30px;
+	transition: 0.5s;
 	text-decoration: none;
 	color: #1B1C21;
 }
 
 .nav-link:hover {
+	transition: 0.5s;
 	color: #7E7E82;
 }
 
@@ -131,20 +158,17 @@
 }
 
 .footer__contacts {
-	margin-bottom: 40px;
+	padding-bottom: 40px;
 }
 
 .footer__icons {
-	margin-bottom: 16px;
-}
-
-.button-call,
-.button-chat {
-	margin-right: 16px;
+	display: flex;
+	gap: 16px;
+	padding-bottom: 16px;
 }
 
 .footer__link {
-	margin-bottom: 12px;
+	padding-bottom: 12px;
 	font-family: 'TT Lakes', 'Arial', sans-serif;
 	line-height: 24px;
 	letter-spacing: -0.2px;
@@ -169,15 +193,15 @@ link__item {
 	font-weight: 700;
 }
 
+.footer__language {
+	display: flex;
+	gap: 7px;
+}
+
 .language__button {
 	font-family: 'TT Lakes', 'Arial', sans-serif;
 	font-size: 16px;
 	line-height: 24px;
-	margin-right: 7px;
-}
-
-.language__button:last-child {
-	margin-right: 0;
 }
 
 .language__button:active {
