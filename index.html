@@ -7,16 +7,36 @@
 	<link rel="stylesheet" href="css/zeroing_out.css">
 	<title>CPS</title>
 </head>
+<!--
+Что нужно поправить:
+
+При наведении на кнопки стиль должен плавно меняться сделано
+
+Должно помещаться в экран по вертикали 
+
+Красный круглые кнопки - это такие же блоки из предыдущего макета и изображения к ним нужно задавать через модификатор как и в предыдущем макете
+
+nav-link - лучше растянуть до правого края блока .aside и сделать их чуть повыше (равномерно увеличить высоту до 40px)
+
+Чаще используй flex
+
+У aside не может быть main. Используй, пожалуйста сервис для проверки HTML разметки, есть и другие ошибки
+
+У .language__button в макете есть выделение
+
+link__item, number__item - элементы без блока нельзя использовать
+
+Для адреса электронной почты и номера телефона нужно задать корректный href-->
 <body>
 	<aside class="aside">
 		<header class="aside__header">
 			<div class="aside__menu">
-				<button class="round-icon button-exit">
+				<button class="round-icon button--exit">
 				</button>
 				<a class="aside__link">
 					<img src="icons/Group.svg" alt="Logo">
 				</a>
-				<button class="round-icon button-search">
+				<button class="round-icon button--search">
 				</button>
 			</div>
 		</header>
@@ -24,7 +44,7 @@
 			<nav class="aside__nav">
 				 <ul class="nav__list">
 					<li class="nav__item">
-						<a class="nav-link " href="#">Ремононт техники</a>
+						<a class="nav-link" href="#">Ремононт техники</a>
 					 </li>
 					 <li class="nav__item">
 						<a class="nav-link" href="#">Услуги и сервисы</a>
@@ -53,28 +73,28 @@
 	  <footer class="footer">
 		<div class="footer__contacts">
 			<div class="footer__icons">
-				<button class="round-icon button-call">
+				<button class="round-icon button--call">
 				</button>
-				<button class="round-icon button-chat">
+				<button class="round-icon button--chat">
 				</button>
-				<button class="round-icon button-profile">
+				<button class="round-icon button--profile">
 				</button>
 			</div>
-			<div class="footer__link">
-				<a class="link__item">mail@cps.com</a>
+			<div class="footer__mail">
+				<a class="footer__item mail" href="#">mail@cps.com</a>
 			</div>
 			<div class="footer__number">
-				<a class="number__item">8 800 890 8900</a>
+				<a class="footer__item number" href="#">8 800 890 8900</a>
 			</div>
 		</div>
 		<div class="footer__language">
-			<button class="language__button">
+			<button class="language__button button--active">
 				RU
 			</button>
-			<button class="language__button">
+			<button class="language__button button--active">
 				EN
 			</button>
-			<button class="language__button">
+			<button class="language__button button--active">
 				CH
 			</button>
 		</div>

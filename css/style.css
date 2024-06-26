@@ -27,37 +27,52 @@
 .round-icon {
 	background: #ff3e79;
    border-radius: 50%;
+	filter: opacity(100%);
+	transition: filter 0.5s ease; 
 	width: 40px;
 	height: 40px;
 }
 
-.button-exit {
+.round-icon:hover {
+	filter: opacity(50%);
+	transition: filter 0.5s ease; 
+}
+
+.button--exit {
 	background-image: url("../icons/burger.svg");
 }
 
-.button-search {
+.button--search {
 	background-image: url("../icons/search.svg");
 }
 
-.button-call {
+.button--call {
 	background-image: url("../icons/chat copy.svg");
 }
 
-.button-chat {
+.button--chat {
 	background-image: url("../icons/chat.svg");
 }
 
-.button-profile {
+.button--profile {
 	background-image: url("../icons/profile.svg");
 }
 
 /*                                                       */
+body {
+	display: flex;
+	overflow: auto;/*если добавляю в асайд, то кнопки уменьшаются из-за прокрутки вертикальной*/
+	height: 100vh;/*без этого высота не подстраивает под высоту браузера, даже с flex-grow: 2;*/
+	min-height: 784px; /*а без этого если высота окна меньше 784px, высота становаиться с высоту окна браузера и элемента выпадают из асайд*/
+}
+
 .aside {
+	display: flex;
+	flex-direction: column;
 	width: 320px;
-	height: 1024;
 	box-shadow: 16px 0px 52px 0px #0E185033;
 	color:#1B1C21;
-	color: inherit
+	color: inherit;
 }
 
 .aside__header {
@@ -65,14 +80,14 @@
 	vertical-align: middle;
 }
 
-.button-exit {
+.button--exit {
 	margin-right: 16.73px;
 }
 
 .aside__menu {
 	display: flex;
-	flex-direction: row;
 	align-items: center;
+	display: flex;
 	padding: 18.73px 24px 46.27px 24px;
 }
 
@@ -84,9 +99,11 @@
 }
 
 .aside__main {
-	width: 69.375%;
+	display: flex;
+	flex-grow: 2;
 	padding-left: 24px;
-	padding-bottom: 268px;
+	padding-bottom: 32px;/* если не фиксированный отступ как в макете 268, 
+	то решила задать нижний внутренний отступ равный расстоянию между эдементами в блоке*/
 }
 
 .aside__nav {
@@ -112,7 +129,6 @@
 	content: '';
 	width: 8px;
 	height: 32px;
-	transition: 3s;
 	margin-top: -4px;
 	margin-left: -28px;
 	margin-right: 20px;
@@ -138,13 +154,11 @@
 }
 
 .nav-link {
+	display: flex;
 	width: 100%;
-	/* 2-е имеется в виду немного увеличить высоту ссылок 
-	надеюсь 30 подойдет ? */
-	height: 30px;
+	vertical-align: middle;
+	height: 40px;/* вижу что высота идет вниз от ссылки, не понимаю как сделать, чтобы рамномерно*/
 	transition: 0.5s;
-	text-decoration: none;
-	color: #1B1C21;
 }
 
 .nav-link:hover {
@@ -153,7 +167,7 @@
 }
 
 .footer {
-	width: 69.375%;
+	width: 100%;
 	padding: 0 0 32px 24px;
 }
 
@@ -167,7 +181,7 @@
 	padding-bottom: 16px;
 }
 
-.footer__link {
+.footer__mail {
 	padding-bottom: 12px;
 	font-family: 'TT Lakes', 'Arial', sans-serif;
 	line-height: 24px;
@@ -175,7 +189,7 @@
 	text-align: left;
 }
 
-link__item {
+.mail {
 	font-family: 'TT Lakes', 'Arial', sans-serif;
 	font-size: 16px;
 }
@@ -184,7 +198,7 @@ link__item {
 	font-family: 'TT Lakes', 'Arial', sans-serif;
 }
 
-.number__item {
+.number {
 	font-family: 'TT Lakes', 'Arial', sans-serif;
 	font-size: 24px;
 	line-height: 32px;
@@ -204,10 +218,7 @@ link__item {
 	line-height: 24px;
 }
 
-.language__button:active {
+/* выглядит странно, но имя класса вроде так нужно задавать */
+.button--active:active {
 	color: #7E7E82;
-}
-
-.footer__button:last-child {
-	margin-right: 0;
 }
