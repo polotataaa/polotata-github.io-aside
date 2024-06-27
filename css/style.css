@@ -26,7 +26,7 @@
 
 .round-icon {
 	background: #ff3e79;
-   border-radius: 50%;
+   	border-radius: 50%;
 	filter: opacity(100%);
 	transition: filter 0.5s ease; 
 	width: 40px;
@@ -62,7 +62,7 @@
 .aside {
 	display: flex;
 	flex-direction: column;
-	overflow-y: auto;/*если добавляю в асайд, то кнопки уменьшаются из-за прокрутки вертикальной*/
+	overflow: auto;
 	height: 100vh;/*без этого высота не подстраивает под высоту браузера, даже с flex-grow: 2;*/
 	min-height: 784px; /*а без этого если высота окна меньше 784px, высота становаиться с высоту окна браузера и элемента выпадают из асайд*/
 	width: 320px;
